@@ -154,7 +154,12 @@ app.post('/card', function(req, res, next) {
 })
 
 function showAllCards(res, context) {
-    pool.query('SELECT * FROM card', function(err3, rows, fields) {
+    pool.query(`
+    SELECT cd.*, cl.name AS class_name
+    FROM card cd
+    JOIN class cl ON cd.class_id = cl.id
+    ORDER BY name
+    `, function(err3, rows, fields) {
         if (err3) {
             context.failure = 1;
             context.message = "Get existing card failed.";
