@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Database Interactions and UI</title>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+
+		<div id="myNavbar"></div>
+
+		<div class="jumbotron">
+			<h1 class="display-4">The Cards in Deck</h1>
+		</div>
+
+		{{#if success}}
+			<hr class="my-4">
+			<div class="alert alert-success" role="alert">
+				<strong>Well done!</strong> {{message}}
+			</div>
+		{{/if}}
+		{{#if failure}}
+			<hr class="my-4">
+			<div class="alert alert-danger" role="alert">
+				<strong>Oh snap!</strong> {{message}}
+			</div>
+		{{/if}}
+
+		<hr class="my-4">
+		<h3>Add New Card to Deck</h3>
+		<table class="table table-striped table-hover table-bordered">
+			<thead>
+				<tr class="table-info">
+					<th>Deck Name</th>
+					<th>Card Name</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<form action="/cards-in-deck" method="post">
+						<td>
+							<select name="deck_id">
+								{{#each deck}}
+								<option value="{{this.id}}">{{this.name}}</option>
+								{{/each}}
+							</select>
+						</td>
+						<td>
+							<select name="card_id">
+								{{#each card}}
+								<option value="{{this.id}}">{{this.name}}</option>
+								{{/each}}
+							</select>
+						</td>
+						<td>
+							<input type="hidden" name="mode" value="add">
+							<input type="submit" class="btn btn-primary" value="Add">
+						</td>
+					</form>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr class="my-4">
+		<h3>Existing Cards in Deck</h3>
+
+		<input type="text" id="search" placeholder="  search by name"></input>
+
+		<table class="table table-striped table-hover table-bordered">
+			<thead>
+				<tr class="table-info">
+					<th>Deck Name</th>
+					<th>Card Name</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#if cards_in_deck}}
+					{{#each cards_in_deck}}
+						<tr>
+							<td>{{this.deck_name}}</td>
+							<td>{{this.card_name}}</td>
+							<td>
+								<form action="/cards-in-deck" method="post">
+									<input type="hidden" name="id" value= {{this.id}}>
+									<input type="hidden" name="mode" value="delete">
+									<input type="submit" class="btn btn-danger" value="Delete">
+								</form>
+							</td>
+						</tr>
+					{{/each}}
+				{{/if}}
+			</tbody>
+		</table>
+
+
+	</div>
+
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Database Interactions and UI</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container">
+		<div id="myNavbar"></div>
+
+		<div class="jumbotron">
+			<h1 class="display-4">Plant vs. Zombie Heroes</h1>
+		</div>
+
+		<hr class="my-4">
+		<h3>Hero <a href="/hero"><button type="button" id="addButton" class="btn btn-primary">Manage</button></a> </h3>
+		<div class="">
+			<p>Player can choose one of the 16 heroes to play, each hero has its own names, race(zombie or plant),
+				action point for each round when in the game, special cards only certain hero can hold, class,
+				and a deck of cards this hero currently use.
+			</p>
+		</div>
+
+		<hr class="my-4">
+
+		<h3>Card <a href="/card"><button type="button" id="addButton" class="btn btn-primary">Manage</button></a> </h3>
+		<div class="">
+			<p>Card is the basic element in this game, it has many properties, name, race(zombie or plant),
+				cost of action point (action points a hero need to consume when it plays this card),
+				type(a card can either be a zombie minion, a plant minion, or a trick),
+				strength(number of damage a minion can inflict to opponent), health(number of hit points), class.
+			</p>
+		</div>
+
+		<hr class="my-4">
+
+		<h3>Class <a href="/class"><button type="button" id="addButton" class="btn btn-primary">Manage</button></a> </h3>
+		<div class="">
+			<p>Class defines which cards can be played by a hero, every hero owns two different classes,
+				and every card has a class. Heroes can play a card only when they have the same class.
+			</p>
+		</div>
+
+		<hr class="my-4">
+
+		<h3>Deck <a href="/deck"><button type="button" id="addButton" class="btn btn-primary">Manage</button></a> </h3>
+		<div class="">
+		<p>
+			A Deck is a group of customized cards, player can build many decks for same hero, but each hero can only
+			use one deck at a time. Deck has a property of max card, normally it’s 40, which means a deck can only hold
+			up to 40 cards, but this number can be changed in certain scenarios
+		</p>
+		</div>
+
+		<hr class="my-4">
+
+		<h3>Cards in Deck <a href="/cards-in-deck"><button type="button" id="addButton" class="btn btn-primary">Manage</button></a> </h3>
+		<div class="">
+		<p>
+			Deck contains many cards, and cards can be included in multiple decks.
+		</p>
+		</div>
+
+
+	</div>
+	<script src="script.js"></script>
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/script.js"></script>
+
+</body>
+
+</html>
